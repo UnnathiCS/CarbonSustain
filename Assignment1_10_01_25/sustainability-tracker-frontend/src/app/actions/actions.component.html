@@ -1,0 +1,46 @@
+<h1>Sustainability Actions</h1>
+
+<table mat-table [dataSource]="actions" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let action"> {{ action.id }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let action"> {{ action.action }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let action"> {{ action.date }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="points">
+        <th mat-header-cell *matHeaderCellDef> Points </th>
+        <td mat-cell *matCellDef="let action"> {{ action.points }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['id', 'action', 'date', 'points']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['id', 'action', 'date', 'points']"></tr>
+</table>
+
+<h2>Add New Action</h2>
+<form (ngSubmit)="addAction()">
+    <mat-form-field>
+        <mat-label>Action Name</mat-label>
+        <input matInput [(ngModel)]="newAction.action" name="action" required />
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input matInput [(ngModel)]="newAction.date" name="date" type="date" required />
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Points</mat-label>
+        <input matInput [(ngModel)]="newAction.points" name="points" type="number" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Add Action</button>
+</form>

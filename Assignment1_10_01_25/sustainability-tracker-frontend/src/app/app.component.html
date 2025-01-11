@@ -1,0 +1,38 @@
+<header>
+  <h1>Sustainability Tracker</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Your Actions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Action</th>
+          <th>Date</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let action of actions">
+          <td>{{ action.id }}</td>
+          <td>{{ action.action }}</td>
+          <td>{{ action.date }}</td>
+          <td>{{ action.points }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Sustainability Tracker. All rights reserved.</p>
+</footer>
